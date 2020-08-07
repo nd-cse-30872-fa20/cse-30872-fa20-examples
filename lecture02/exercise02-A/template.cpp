@@ -1,4 +1,4 @@
-// Exercise 01-B: Count Duplicates
+// Exercise 02-A: Count Duplicates
 
 #include <algorithm>
 #include <iostream>
