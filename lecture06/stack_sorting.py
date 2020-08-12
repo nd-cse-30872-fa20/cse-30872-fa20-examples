@@ -2,7 +2,7 @@
 
 # Functions
 
-def sorted_stack(old_stack):
+def sort_stack(old_stack):
     new_stack = []
     while old_stack:
         #t = old_stack.pop(0)
@@ -20,7 +20,7 @@ def sorted_stack(old_stack):
 def main():
     stack = [5, 4, 7, 0, 1]
     print(stack)
-    print(sorted_stack(stack))
+    print(sort_stack(stack))
 
 if __name__ == '__main__':
     main()

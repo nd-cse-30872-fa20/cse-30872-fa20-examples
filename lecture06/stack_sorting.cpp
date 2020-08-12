@@ -1,4 +1,4 @@
-// sortedstack.cpp
+// stack_sorting.cpp
 
 #include <iostream>
 #include <stack>
