@@ -10,8 +10,8 @@ stack<int> sort_stack(stack<int> &os) {
 
     while (!os.empty()) {
     	auto t = os.top(); os.pop();
-    	//while (!ns.empty() && os.top() > t) {
-    	while (!ns.empty() && ns.top() > t) {
+    	while (!ns.empty() && os.top() > t) {
+    	// while (!ns.empty() && ns.top() > t) { // FIX
     	    os.push(ns.top());
     	    ns.pop();
 	}
