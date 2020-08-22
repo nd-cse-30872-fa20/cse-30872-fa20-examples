@@ -12,7 +12,7 @@ def is_happy(n, seen):
 
 def main():
     for n in map(int, sys.stdin):
-        print('Yes' if is_happy_cached(n, set()) else 'No')
+        print('Yes' if is_happy(n, set()) else 'No')
 
 if __name__ == '__main__':
     main()
