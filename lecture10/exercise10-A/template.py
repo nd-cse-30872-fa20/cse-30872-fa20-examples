@@ -11,6 +11,9 @@ def is_palindromic(s):
 
 # Main Execution
 
-if __name__ == '__main__':
+def main():
     for word in sys.stdin:
         print('Yes' if is_palindromic(word.rstrip()) else 'No')
+
+if __name__ == '__main__':
+    main()
