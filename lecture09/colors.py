@@ -34,8 +34,11 @@ def expand_counts(counts):
 
 # Main execution
 
-if __name__ == '__main__':
+def main():
     for line in sys.stdin:
         counts = count_colors(map(int, line.split()))
         colors = expand_counts(counts)
         print(' '.join(map(str, colors)))
+
+if __name__ == '__main__':
+    main()
