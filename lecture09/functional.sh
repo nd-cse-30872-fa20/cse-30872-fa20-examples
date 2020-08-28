@@ -42,7 +42,7 @@ fi
 PROGRAM=$1
 
 echo -n "Testing $PROGRAM ... "
-if diff -q <(test-input | $PROGRAM) <(test-output) >& /dev/null; then
+if diff -q <(test-input | $PROGRAM) <(test-output) &> /dev/null; then
     echo "Success"
 else
     echo "Failure"
