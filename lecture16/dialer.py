@@ -20,14 +20,8 @@ NEIGHBORS = {
     0: (4, 6),
 }
 
-def dial_numbers(number, length):
-    if length == 1:
-        yield number
-    else:
-        for neighbor in NEIGHBORS[number[-1]]:
-            yield from dial_numbers(number + [neighbor], length - 1)
-
 def dial_numbers_count(start, length):
+    ''' Version 1: Recursive '''
     # Base case
     if length == 1:
         return 1
@@ -38,11 +32,12 @@ def dial_numbers_count(start, length):
     )
 
 def dial_numbers_count(start, length, cache={}):
+    ''' Version 2: Recursive with Memoization (Cache) '''
     # Base case
     if length == 1:
         return 1
     
-    # Memoize recursive step
+    # Recursive step (memoized)
     pair = (start, length)
     if pair not in cache:
         cache[pair] = sum(
@@ -52,6 +47,7 @@ def dial_numbers_count(start, length, cache={}):
     return cache[pair]
 
 def dial_numbers_count(start, length):
+    ''' Version 3: Table Building in O(n^2) space '''
     # Initialize Table
     table = [[0 for _ in range(length + 1)] for _ in range(len(NEIGHBORS))]
 
@@ -71,6 +67,7 @@ def dial_numbers_count(start, length):
     return table[start][length]
 
 def dial_numbers_count(start, length):
+    ''' Version 4: Table Building in O(n) space '''
     # Initialize Table and Base Case
     old_table = [1 for _ in range(len(NEIGHBORS))]
     new_table = [1 for _ in range(len(NEIGHBORS))]
@@ -87,20 +84,13 @@ def dial_numbers_count(start, length):
 
     return new_table[start]
 
-# Main Execution
-
 def main():
-    for index, line in enumerate(sys.stdin):
+    for line in sys.stdin:
         start, length = map(int, line.split())
-        numbers       = dial_numbers([start], length)
         count         = dial_numbers_count(start, length)
-
-        if index:
-            print()
-
         print(count)
-        for number in sorted(numbers):
-            print(''.join(map(str, number)))
+
+# Main Execution
 
 if __name__ == '__main__':
     main()
