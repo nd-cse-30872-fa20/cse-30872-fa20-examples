@@ -40,6 +40,9 @@ def fibonacci(n):
 
 # Main Execution
 
-if __name__ == '__main__':
+def main():
     for i in map(int, sys.stdin):
-        print('fibonaci({}) = {}'.format(i, fibonacci(i)))
+        print('fibonacci({}) = {}'.format(i, fibonacci(i)))
+
+if __name__ == '__main__':
+    main()
