@@ -5,6 +5,10 @@
 
 import sys
 
+# https://docs.python.org/3/library/typing.html
+
+from typing import List, Iterator
+
 # Functions
 
 LETTERS = {
@@ -18,7 +22,9 @@ LETTERS = {
     '9': 'wxyz',
 }
 
-def phone_combinations(numbers, letters):
+
+'''
+def phone_combinations(numbers: List[str], letters: str) -> List[str]:
     if not numbers:
         return [letters]
 
@@ -29,8 +35,9 @@ def phone_combinations(numbers, letters):
         )
 
     return results
+'''
 
-def phone_combinations(numbers, letters):
+def phone_combinations(numbers: List[str], letters: str) -> Iterator[str]:
     if not numbers:
         yield letters
     else:
@@ -39,7 +46,10 @@ def phone_combinations(numbers, letters):
 
 # Main Execution
 
-if __name__ == '__main__':
+def main():
     for numbers in sys.stdin:
         for combination in phone_combinations(numbers.strip(), ''):
             print(combination)
+
+if __name__ == '__main__':
+    main()
