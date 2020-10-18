@@ -14,9 +14,9 @@ def read_graph():
         g[target][source] = int(weight)
     return g
 
-# Compute SSP
+# Compute SSSP
 
-def compute_ssp(g):
+def compute_sssp(g):
     frontier = []
     visited  = {}
     start    = list(g.keys())[0]
@@ -74,10 +74,10 @@ def reconstruct_path(visited, source, target):
 def main():
     g = read_graph()
 
-    # SSP
-    v = compute_ssp(g)
+    # SSSP
+    v = compute_sssp(g)
     s = list(g.keys())[0]
-    print('SSP')
+    print('SSSP')
     for t in list(g.keys())[1:]:
         print('{} -> {} = {}'.format(s, t, ' '.join(reconstruct_path(v, s, t))))
 
